@@ -908,7 +908,7 @@ def install_pip_requirements(query, requirements_file, tmp_dir):
                             working_dir, artifacts_dir, 'cache/pip'))
 
                 chown_mask = '{}:{}'.format(os.getuid(), os.getgid())
-                shell_command = ['yum -y install git', shlex_join(pip_command), '&&',
+                shell_command = ['yum -y install git', '&&', shlex_join(pip_command), '&&',
                                  shlex_join(['chown', '-R',
                                              chown_mask, '.'])]
                 shell_command = [' '.join(shell_command)]
