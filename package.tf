@@ -58,8 +58,8 @@ resource "null_resource" "archive" {
   count = var.create && var.create_package ? 1 : 0
 
   triggers = {
-    filename  = data.external.archive_prepare[0].result.filename
-    timestamp = data.external.archive_prepare[0].result.timestamp
+    filename = data.external.archive_prepare[0].result.filename
+    # timestamp = data.external.archive_prepare[0].result.timestamp
   }
 
   provisioner "local-exec" {
