@@ -1013,6 +1013,8 @@ def docker_run_command(build_root, command, runtime,
     if not image:
         image = 'lambci/lambda:build-{}'.format(runtime)
 
+    docker_cmd.extend(["--entrypoint=''"])
+
     docker_cmd.append(image)
 
     assert isinstance(command, list)
